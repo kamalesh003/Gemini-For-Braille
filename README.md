@@ -1,4 +1,4 @@
-##GEMINI FOR BRAILLE
+##GEMINI FOR BRAILLE##
 
 **Connect to Gemini AI API:**(H2)
 
