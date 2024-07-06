@@ -1,4 +1,6 @@
-**Connect to Gemini AI API**(H2)
+##GEMINI FOR BRAILLE
+
+**Connect to Gemini AI API:**(H2)
 
 Refer this Link: https://colab.research.google.com/notebooks/snippets/gemini.ipynb
 
