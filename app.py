@@ -7,7 +7,7 @@ import speech_recognition as sr
 app = Flask(__name__)
 
 # Set your API key as an environment variable
-os.environ['GOOGLE_API_KEY'] = 'AIzaSyB8D2UZJ5uapoygIVy9E286K73Yjk8HzR4'
+os.environ['GOOGLE_API_KEY'] = '******************************'#replace with API From Google Studio
 
 # Retrieve your API key from the environment variable
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
