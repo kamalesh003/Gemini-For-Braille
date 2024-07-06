@@ -1,4 +1,4 @@
-**Connect to Gemini AI API**
+**Connect to Gemini AI API**(H2)
 
 Refer this Link: https://colab.research.google.com/notebooks/snippets/gemini.ipynb
 
