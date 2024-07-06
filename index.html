@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini For Braille</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            background-color: #343a40;
+            color: white;
+            border-radius: 15px 15px 0 0;
+            text-align: center;
+            padding: 15px;
+            font-size: 1.5rem;
+        }
+        .card-body {
+            padding: 30px;
+        }
+        .btn-primary {
+            background-color: #343a40;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #495057;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        #brailleResponse {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            border-radius: 5px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <i class="fas fa-braille"></i> AI For Braille 
+        </div>
+        <div class="card-body">
+            <div>
+                <h2>Braille Response:</h2>
+                <p id="brailleResponse"></p>
+                <button class="btn btn-primary" onclick="downloadBraille()" aria-label="Download Braille (F3)">Download BRF (F3)</button>
+            </div>
+            <hr>
+            <div>
+                <h2>Submit Voice or Text Input:</h2>
+                <form id="voiceInputForm" onsubmit="submitVoiceInput(event)">
+                    <div class="form-group">
+                        <label for="voiceInput" class="form-label">Voice or Text Input:</label>
+                        <input type="text" class="form-control" id="voiceInput" name="voice_input" placeholder="Type or press the button to start recording" aria-label="Voice or Text Input Field">
+                    </div>
+                    <button type="button" class="btn btn-secondary" onclick="startListening()" aria-label="Start Listening (F1)">Start Listening (F1)</button>
+                    <button type="submit" class="btn btn-primary" aria-label="Submit Input (F2)">Submit (F2)</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+<script>
+    let recognizing = false;
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+
+    recognition.onresult = (event) => {
+        const voiceInput = document.getElementById("voiceInput");
+        voiceInput.value = event.results[0][0].transcript;
+    };
+
+    recognition.onend = () => {
+        recognizing = false;
+    };
+
+    function startListening() {
+        if (!recognizing) {
+            recognition.start();
+            recognizing = true;
+        }
+    }
+
+    function setBrailleResponse(response) {
+        document.getElementById("brailleResponse").innerText = response;
+    }
+
+    function downloadBraille() {
+        const text = document.getElementById("brailleResponse").innerText;
+        const blob = new Blob([text], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        a.download = 'braille_response.brf';
+        document.body.appendChild(a);
+        a.click();
+        URL.revokeObjectURL(url);
+    }
+
+    async function submitVoiceInput(event) {
+        event.preventDefault();
+        const form = document.getElementById("voiceInputForm");
+        const formData = new FormData(form);
+        const response = await fetch('/process_voice_input', {
+            method: 'POST',
+            body: formData
+        });
+        const result = await response.json();
+        setBrailleResponse(result.braille_response);
+    }
+
+    // Adding keyboard shortcuts
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'F1') {
+            event.preventDefault();
+            startListening();
+        }
+        if (event.key === 'F2') {
+            event.preventDefault();
+            submitVoiceInput(new Event('submit'));
+        }
+        if (event.key === 'F3') {
+            event.preventDefault();
+            downloadBraille();
+        }
+    });
+</script>
+
+</body>
+</html>
+
+
