@@ -4,6 +4,7 @@
 **Connect to Gemini AI API:**
 
 Refer this Link: https://colab.research.google.com/notebooks/snippets/gemini.ipynb
+
 USE YOUR OWN GEMINI-AI API IN 'app.py'
 
 # Braille Ready Format:
