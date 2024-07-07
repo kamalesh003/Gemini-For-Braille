@@ -74,7 +74,7 @@ Before running the application, ensure you have the following installed:
 
 ## Voice Input:
 
-* Click **Start Listening (F1) or press F1** to start recording voice input.
+* Click **Start Listening or press Fn + F1** to start recording voice input.
 
 * Speak into your microphone. The recognized text will appear in the input field.
 
@@ -84,13 +84,13 @@ Before running the application, ensure you have the following installed:
 
 ## Submit Input:
 
-* Click **Submit (F2) or press F2** to submit the input.
+* Click **Submit or press (Fn + F2)** to submit the input.
 
 ## Braille Response:
 
 * The converted Braille response will appear below the input field.
 
-* Click **Download BRF (F3) or press F3** to download the Braille response as a **.brf** file.
+* Click **Download BRF  or press (Fn + F3)** to download the Braille response as a **.brf** file.
 
 ## Integration with Backend:
 
