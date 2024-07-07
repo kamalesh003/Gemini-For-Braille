@@ -5,7 +5,7 @@
 
 Refer this Link: https://colab.research.google.com/notebooks/snippets/gemini.ipynb
 
-USE YOUR OWN GEMINI-AI API IN 'app.py'
+CREATE AND USE YOUR OWN GEMINI-AI API IN 'app.py'
 
 # Braille Ready Format:
 
