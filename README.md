@@ -64,7 +64,7 @@ Before running the application, ensure you have the following installed:
 
 # FRONTEND:
 
-**Features:**
+## Features:
 
 1.)Allows users to input voice or text commands.
 
@@ -72,33 +72,31 @@ Before running the application, ensure you have the following installed:
 
 3.)Provides a button to download the Braille response in BRF format.
 
-**Usage:**
+## Voice Input:
 
-**Voice Input:**
+* Click **Start Listening (F1) or press F1** to start recording voice input.
 
-Click Start Listening (F1) or press F1 to start recording voice input.
+* Speak into your microphone. The recognized text will appear in the input field.
 
-Speak into your microphone. The recognized text will appear in the input field.
+## Text Input:
 
-**Text Input:**
+* Alternatively, type directly into the Voice or Text Input field.
 
-Alternatively, type directly into the Voice or Text Input field.
+## Submit Input:
 
-**Submit Input:**
+* Click **Submit (F2) or press F2** to submit the input.
 
-Click **Submit (F2)** or press F2 to submit the input.
+## Braille Response:
 
-**Braille Response:**
+* The converted Braille response will appear below the input field.
 
-The converted Braille response will appear below the input field.
+* Click **Download BRF (F3) or press F3** to download the Braille response as a **.brf** file.
 
-Click **Download BRF (F3)** or press F3 to download the Braille response as a **.brf** file.
+## Integration with Backend:
 
-**Integration with Backend:**
+* Ensure the Flask backend is running (python app.py) before using this interface.
 
-Ensure the Flask backend is running (python app.py) before using this interface.
-
-The backend processes input via **/process_voice_input** endpoint and returns the Braille response in JSON format.
+* The backend processes input via **/process_voice_input** endpoint and returns the Braille response in JSON format.
 
 # Empowering Education and Accessibility
 
