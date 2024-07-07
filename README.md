@@ -31,7 +31,7 @@ CREATE AND USE YOUR OWN GEMINI-AI API IN 'app.py'
 This Flask application provides a backend service for converting voice commands into Braille using a Generative AI model. 
 It utilizes the Google Generative AI SDK for text generation and supports voice input through a simple HTML interface.
 
-**Features:**
+## Features:
 
 * Converts voice commands to spoken responses using a Generative AI model.
 
@@ -39,7 +39,7 @@ It utilizes the Google Generative AI SDK for text generation and supports voice 
 
 * Stores user requests and responses locally in separate folders.
 
-**Prerequisites:**
+## Prerequisites:
 
 Before running the application, ensure you have the following installed:
 
@@ -49,7 +49,7 @@ Before running the application, ensure you have the following installed:
 
 * Google Generative AI SDK (pip install google-generativeai)
 
-**Usage:**
+## Usage:
 
 * Enter manual typed input (or) voice commands in the provided text field and submit.
 
@@ -57,7 +57,7 @@ Before running the application, ensure you have the following installed:
 
 * Stored responses can be found in the **actual_responses** and **brf_characters** folders.
 
-**Folder Structure:**
+## Folder Structure:
 
 * **actual_responses/:** Stores text files containing user requests and spoken responses.
 * **brf_characters/:** Stores Braille responses in BRF format.
